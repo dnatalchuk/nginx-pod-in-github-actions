@@ -7,7 +7,7 @@ on:
     branches: [ "feature/devops-test-execution-1" ]
 
 jobs:
-  deploy:
+  scarf-devops-test:
     runs-on: ubuntu-latest
 
     steps:
