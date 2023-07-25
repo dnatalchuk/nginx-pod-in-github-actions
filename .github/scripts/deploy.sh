@@ -2,7 +2,7 @@
 
 set -ex
 
-cd ./src && docker build -t scarf-test:latest .
+cd ./src && docker build --tag scarf-test:latest .
 [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
@@ -15,7 +15,7 @@ echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kind load docker-image scarf-test:latest --name kind
 sleep 50
-docker exec -it kind-control-plane crictl images
+docker exec kind-control-plane crictl images
 # kubectl apply -f ../site-deployment.yml
 # kubectl apply -f ../site-service.yml
 # sleep 10
