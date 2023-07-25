@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the scarf-test Docker image
-      run:  cd ./src && docker build --tag scarf-test:latest .
+    # - uses: actions/checkout@v3
+    # - name: Build the scarf-test Docker image
+    #   run:  cd ./src && docker build --tag scarf-test:latest .
 
     - name: Creating "kind" cluster and deploying hello-world app 
       run: ./.github/scripts/deploy.sh
