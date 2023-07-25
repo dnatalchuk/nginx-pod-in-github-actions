@@ -2,9 +2,9 @@ name: Scarf Hello-World presentation
 
 on:
   push:
-    branches: [ "feature/devops-test-execution-1" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "feature/devops-test-execution-1" ]
+    branches: [ "master" ]
 
 jobs:
   scarf-devops-test:
