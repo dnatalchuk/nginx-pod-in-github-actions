@@ -19,9 +19,7 @@ kind load docker-image $IMAGE_TAG --name kind
 kubectl apply -f ../site-deployment.yml
 sleep 20
 kubectl apply -f ../site-service.yml
-sleep 20
 kubectl get pods -n default
 hello_world_pod_name=$(kubectl get pods -n default --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 kubectl exec -n default $hello_world_pod_name -- curl localhost:8080
-sleep 5
-# kind delete cluster
+kind delete cluster
