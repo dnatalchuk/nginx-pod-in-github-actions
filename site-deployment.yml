@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: scarf_test:1.0.0
+          image: scarf-test:latest
           ports:
             - containerPort: 8080
