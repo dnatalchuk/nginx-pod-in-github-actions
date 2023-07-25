@@ -7,7 +7,9 @@ chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 kind create cluster
 kind get clusters
+kubectl cluster-info --context kind-kind
 kind load docker-image scarf-test:latest --name kind
+sleep 10
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
@@ -18,4 +20,5 @@ sleep 10
 kubectl get pods -n default
 hello_world_pod_name=$(kubectl get pods -n default --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 kubectl exec -it -n default $hello_world_pod_name -- curl localhost:8080
+sleep 5
 kind delete cluster
