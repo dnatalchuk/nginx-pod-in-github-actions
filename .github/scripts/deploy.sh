@@ -15,14 +15,15 @@ echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kind load docker-image scarf-test:latest --name kind
 sleep 50
-kubectl apply -f ../site-deployment.yml
-kubectl apply -f ../site-service.yml
-sleep 10
-kubectl get pods -n default
-sleep 10
-kubectl get pods -n default
-hello_world_pod_name=$(kubectl get pods -n default --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
-kubectl describe pod $hello_world_pod_name -n default
+docker exec -it kind-control-plane crictl images
+# kubectl apply -f ../site-deployment.yml
+# kubectl apply -f ../site-service.yml
+# sleep 10
+# kubectl get pods -n default
+# sleep 10
+# kubectl get pods -n default
+# hello_world_pod_name=$(kubectl get pods -n default --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+# kubectl describe pod $hello_world_pod_name -n default
 
 # hello_world_pod_name=$(kubectl get pods -n default --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 # kubectl exec -it -n default $hello_world_pod_name -- curl localhost:8080
