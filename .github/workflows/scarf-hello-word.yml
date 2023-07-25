@@ -7,16 +7,16 @@ on:
     branches: [ "feature/devops-test-execution-1" ]
 
 jobs:
-  deployment:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Build the scarf-test Docker image
     - uses: actions/checkout@v3
+    - name: Build the scarf-test Docker image
       run: docker build . --file src/Dockerfile --tag scarf-test:latest
 
     - name: Creating "kind" cluster and deploying hello-world app 
-    - uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@master
       with:
         script: |
           [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
@@ -33,5 +33,4 @@ jobs:
           kubectl apply -f site-service.yml
           hello_world_pod_name=$(kubectl get pods -n default --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
           kubectl exec -it -n default $hello_world_pod_name -- curl localhost:8080
-
-
+          kind delete cluster
