@@ -14,3 +14,5 @@
 - To present this project, push it to a github repository when you are done. 
 - Setup github actions that builds and tears down the entire cluster with the pod that has the `Hello World` website. 
 - Finally, invite the interviewers to the repository.
+
+## Documentation for task execution: 
