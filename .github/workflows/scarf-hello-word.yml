@@ -15,6 +15,6 @@ jobs:
     # - name: Build the scarf-test Docker image
     #   run:  cd ./src && docker build --tag scarf-test:latest .
     - uses: actions/checkout@v3
-    - name: Creating "kind" cluster and deploying hello-world app 
+    - name: Building hello-world Docker image, creating "kind" cluster and deploying app
       run: ./.github/scripts/deploy.sh
       shell: bash
