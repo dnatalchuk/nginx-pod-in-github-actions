@@ -1,7 +1,8 @@
 #!/bin/bash
 
-set -e
-docker  --version
+set -ex
+
+cd ./src && docker build --tag scarf-test:latest .
 [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
