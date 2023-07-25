@@ -1,0 +1,17 @@
+name: Scarf Hello-World presentation
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  scarf-devops-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Building "hello-world" Docker image, creating "kind" cluster and deploying app
+      run: ./.github/scripts/deploy.sh
+      shell: bash
