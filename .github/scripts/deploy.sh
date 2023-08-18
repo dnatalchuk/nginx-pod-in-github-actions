@@ -2,7 +2,7 @@
 
 set -ex
 
-IMAGE_TAG="scarf_test:1.0.0"
+IMAGE_TAG="nginx_pod_in_github_actions:1.0.0"
 
 cd ./src && docker build --tag $IMAGE_TAG .
 [ $(uname -m) = x86_64 ] && curl -sLo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
