@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: hello-world
-          image: scarf_test:1.0.0
+          image: nginx_pod_in_github_actions:1.0.0
           ports:
             - containerPort: 8080

@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  scarf-devops-test:
+  github-actions-nginx:
     runs-on: ubuntu-latest
 
     steps:

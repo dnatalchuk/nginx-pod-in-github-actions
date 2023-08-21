@@ -100,11 +100,7 @@ Forwarding from [::1]:8080 -> 8080
 Handling connection for 8080
 Handling connection for 8080
 ```
-![](./docs/1.png)
-
 ## GitHub actions implementation details:
-
-![](./docs/2.png)
 
 * GitHub actions logic is defined as below:
 

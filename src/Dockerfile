@@ -6,4 +6,4 @@ WORKDIR /src
 
 # Copying NGINX configuration and index.html file to the container:
 COPY ./nginx.conf /etc/nginx/nginx.conf
-COPY ./index.html /scarf_hello/
+COPY ./index.html /ga_hello/
